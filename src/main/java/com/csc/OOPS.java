@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 
 public class OOPS {
-    double lowerbound = Integer.MIN_VALUE;
-    double upperbound = Integer.MAX_VALUE;
+    int lowerbound = Integer.MIN_VALUE;
+    int upperbound = Integer.MAX_VALUE;
     String errorMessage;
     String inputMessage;
     public double Bound2() {
@@ -14,7 +14,7 @@ public class OOPS {
         int input = in.nextInt(); 
         switch (input) {
             case 1: System.out.println("Input your lower bound: ");
-            lowerbound = in.nextDouble();
+            lowerbound = in.nextInt();
             break;
             default:
             break;
@@ -23,7 +23,7 @@ public class OOPS {
         int input2 = in.nextInt();
         switch (input2) {
             case 1: System.out.println("Input your upper bound: ");
-            upperbound = in.nextDouble();
+            upperbound = in.nextInt();
             break;
             default:
             break;
@@ -35,10 +35,10 @@ public class OOPS {
         errorMessage = in.nextLine();
 
         System.out.println(inputMessage);
-        double number = in.nextDouble();
+        int number = in.nextInt();
         while (number < lowerbound || number > upperbound) {
             System.out.println(errorMessage);
-            number = in.nextDouble();
+            number = in.nextInt();
         }
         System.out.println("The number is within the set bounds");
         in.close();
