@@ -8,33 +8,59 @@ public class OOPS {
     int upperbound = Integer.MAX_VALUE;
     String errorMessage;
     String inputMessage;
-    public double Bound2() {
+    public int Bound2() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Please choose 1 to input a lower bound or another integer for no lower bound: ");
-        int input = in.nextInt(); 
+        System.out.println("Please choose 1 to input a lower bound, another integer for no lower bound, or input 'default' for a default bound of 100: (enter exit to exit the menu) ");
+        String input = in.nextLine(); 
         switch (input) {
-            case 1: System.out.println("Input your lower bound: ");
+            case "1": System.out.print("Input your lower bound: ");
             lowerbound = in.nextInt();
             break;
+            case "default":
+            lowerbound = 100;
+            break;
+            case "exit": System.out.println("The program has exited, restart the program to resume");
+            System.exit(0);
             default:
             break;
         }
-        System.out.println("Please choose 1 to input a upper bound or another integer to have no upper bound: ");
-        int input2 = in.nextInt();
+        in.nextLine();
+        System.out.println("Please choose 1 to input an upper bound, another integer to have no upper bound, or input 'default' for a default bound of 100: (enter exit to exit the menu) ");
+        String input2 = in.nextLine();
         switch (input2) {
-            case 1: System.out.println("Input your upper bound: ");
+            case "1": System.out.print("Input your upper bound: ");
             upperbound = in.nextInt();
+            in.nextInt();
+            break;
+            case "default": 
+            upperbound = 100;
+            break;
+            case "exit": System.out.println("The program has exited, restart the program to resume");
+            System.exit(0);
             break;
             default:
             break;
             }
         in.nextLine();
-        System.out.println("Please input the prompt to ask the user to input a number within your previously set bounds: ");
+        System.out.println("Please input the prompt to ask the user to input a number within your previously set bounds: (enter exit to exit the menu) ");
         inputMessage = in.nextLine();
-        System.out.println("Please input an error message to be shown if a number is inputed outside of the set bounds: ");
+        switch (inputMessage) {
+            case "exit": System.out.println("The program has exited, restart the program to resume");
+            System.exit(0);
+            break;
+            default:
+            break;
+        }
+        System.out.println("Please input an error message to be shown if a number is inputed outside of the set bounds: (enter exit to exit the menu) ");
         errorMessage = in.nextLine();
-
-        System.out.println(inputMessage);
+        switch (errorMessage) {
+            case "exit": System.out.println("The program has exited, restart the program to resume");
+            System.exit(0);
+            break;
+            default:
+            break;
+        }
+        System.out.println(inputMessage); 
         int number = in.nextInt();
         while (number < lowerbound || number > upperbound) {
             System.out.println(errorMessage);
